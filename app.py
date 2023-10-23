@@ -36,7 +36,7 @@ def registro():
             observaciones = request.form['observaciones']
             cnx = getConnection()
             cur = cnx.cursor()
-            cur.execute("INSERT INTO correspondencia_tb(fecha,numfolio,remitente, adscripcion,asunto,hora,numhojas,anexos,derivado,observaciones)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (fecha,numfolio,remitente,adscripcion,asunto,hora,numhojas,anexos,derivado,observaciones))
+            cur.execute("INSERT INTO ()VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", ())
             if cur.with_rows == True:
                 flash('Registro Realizado')
                 return redirect(url_for('list'))
@@ -54,7 +54,7 @@ def list():
         try:
             cnx = getConnection()
             cur = cnx.cursor()
-            cur.execute("SELECT * FROM correspondencia_tb")
+            cur.execute("SELECT * FROM ")
             results = cur.fetchall()
             #print(results)
             cur.close()
@@ -76,7 +76,7 @@ def getFolio(id):
         try:
             cnx = getConnection()
             cur = cnx.cursor()
-            cur.execute("SELECT * FROM correspondencia_tb WHERE id={}".format(id))
+            cur.execute("SELECT * FROM WHERE id={}".format(id))
             result = cur.fetchone()
             cur.close()
             cnx.close()
@@ -94,7 +94,7 @@ def delete(id):
     if request.method == 'POST':
         cnx =getConnection()
         cur = cnx.cursor()
-        cur.execute("DELETE FROM correspondencia_tb WHERE id=?",(id))
+        cur.execute("DELETE FROM  WHERE id=?",(id))
         if cur.with_rows == True:
             print('registro ELiminado')         
         cur.close()
