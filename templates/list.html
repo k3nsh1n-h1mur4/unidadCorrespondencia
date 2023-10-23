@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <aside>
+        <table>
+            <tr>
+                <th>Fecha</th>
+                <th>Folio</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result[1] }}</td>
+                <td>{{ result[2] }}</td>
+                <td>
+                    <a href="#">Actualizar</a>
+                    <a href="#">Eliminar</a>
+                </td>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </aside>
+{% endblock %}
